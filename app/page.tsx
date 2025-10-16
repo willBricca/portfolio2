@@ -1,103 +1,80 @@
+import SiteNav from "@/components/site-nav";
 import Image from "next/image";
+import { Card, CardHeader, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 
 export default function Home() {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <>
+      <SiteNav />
+      <main className="pb-24">
+        {/* HERO */}
+        <section className="pt-24 pb-16">
+          <h1 className="text-5xl md:text-7xl font-semibold tracking-tight leading-[1.05]">
+            Mechanical engineer building <span className="text-zinc-500">control-driven</span> systems that ship.
+          </h1>
+          <p className="mt-6 text-lg text-zinc-600 max-w-2xl">
+            Robotics, soft mechanisms, vehicle dynamics. Python/MATLAB, CAD, controls.
+          </p>
+          <div className="mt-8 flex gap-3">
+            <a href="/cv.pdf" className="underline underline-offset-4">Download CV</a>
+            <a href="#projects" className="underline underline-offset-4">View projects</a>
+          </div>
+        </section>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
+        {/* PROJECTS */}
+        <section id="projects" className="space-y-8">
+          <h2 className="text-3xl font-semibold tracking-tight">Projects</h2>
+          <div className="grid md:grid-cols-2 gap-6">
+            <Card className="overflow-hidden">
+              <CardHeader className="space-y-2">
+                <h3 className="text-xl font-semibold">Hypershoe: variable-stiffness pods</h3>
+                <div className="flex gap-2"><Badge>Soft Robotics</Badge><Badge>FEA</Badge><Badge>Python</Badge></div>
+              </CardHeader>
+              <CardContent className="space-y-3">
+                <p className="text-zinc-600">&gt;80% energy return; drop-test rig; latex vs TPU.</p>
+                <Image src="/images/hypershoe.jpg" alt="Hypershoe" width={1200} height={800} className="rounded-xl"/>
+              </CardContent>
+            </Card>
+
+            <Card className="overflow-hidden">
+              <CardHeader className="space-y-2">
+                <h3 className="text-xl font-semibold">Autonomous baseball rover</h3>
+                <div className="flex gap-2"><Badge>Controls</Badge><Badge>OpenCV</Badge><Badge>PID</Badge></div>
+              </CardHeader>
+              <CardContent className="space-y-3">
+                <p className="text-zinc-600">Centroiding + PID approach; surface-aware gains.</p>
+                <Image src="/images/rover.jpg" alt="Rover" width={1200} height={800} className="rounded-xl"/>
+              </CardContent>
+            </Card>
+          </div>
+        </section>
+
+        {/* PUBLICATIONS */}
+        <section id="publications" className="mt-20 space-y-4">
+          <h2 className="text-3xl font-semibold tracking-tight">Publications & Reports</h2>
+          <ul className="list-disc pl-5 text-zinc-700">
+            <li><a className="underline" href="/pdfs/hypershoe-report.pdf">Energy Return in Air-Bladder Pods (PDF)</a></li>
+            <li><a className="underline" href="/pdfs/tokenization-thesis.pdf">Swiss Real-Estate Tokenization (PDF)</a></li>
+          </ul>
+        </section>
+
+        {/* ABOUT + CONTACT */}
+        <section id="about" className="mt-20 grid md:grid-cols-2 gap-10">
+          <div>
+            <h2 className="text-3xl font-semibold tracking-tight">About</h2>
+            <p className="mt-4 text-zinc-600">
+              UCSB mechanical engineering. Controls, autonomy, soft systems. Build, test, iterate.
+            </p>
+          </div>
+          <div id="contact">
+            <h2 className="text-3xl font-semibold tracking-tight">Contact</h2>
+            <p className="mt-4 text-zinc-600">
+              Email: <a className="underline" href="mailto:dkauffmann@ucsb.edu">dkauffmann@ucsb.edu</a>
+            </p>
+          </div>
+        </section>
       </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+    </>
   );
 }
