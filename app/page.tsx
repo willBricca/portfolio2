@@ -14,7 +14,7 @@ const projects = [
   {
     name: "Autonomous baseball rover",
     summary: "Centroiding + PID approach; surface-aware gains.",
-    image: "/images/rover.jpg",
+    image: "/images/rover.png",
     tags: ["Controls", "OpenCV", "PID"],
     href: undefined,
   },
@@ -45,7 +45,6 @@ export default function Home() {
           </p>
           <div className="mt-8 flex gap-3">
             <a href="/cv.pdf" className="underline underline-offset-4">Download CV</a>
-            <a href="#projects" className="underline underline-offset-4">View projects</a>
           </div>
         </section>
 
