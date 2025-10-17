@@ -14,17 +14,14 @@ export default function RoverProject() {
             Autonomous Baseball Rover
           </h1>
           <div className="aspect-video mb-8">
-            <video
+            <iframe
               className="w-full h-full rounded-xl object-cover"
-              autoPlay
-              loop
-              muted
-              playsInline
-              controls
-            >
-              <source src="/videos/rover-demo.mp4" type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
+              src="https://www.youtube.com/embed/YOUR_VIDEO_ID_HERE"
+              title="Autonomous Rover Demo"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            />
           </div>
           <div className="flex flex-wrap gap-2 mb-4">
             <Badge>Controls</Badge>
