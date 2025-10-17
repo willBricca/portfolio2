@@ -120,3 +120,48 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* Make html/body fill the viewport and enable smooth scrolling */
+html, body, #__next {
+  height: 100%;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Subtle custom scrollbar: thin and low-contrast */
+/* WebKit browsers */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(15, 23, 42, 0.12); /* subtle dark on light */
+  border-radius: 9999px;
+  border: 2px solid transparent; /* gives pseudo-padding */
+  background-clip: padding-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(15, 23, 42, 0.18);
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(15, 23, 42, 0.12) transparent;
+}
+
+/* Removed scroll-snap for natural, Apple-like scroll feel */
+
+/* ensure smooth scroll (timing controlled by user agent) */
+html {
+  scroll-behavior: smooth;
+}
+
