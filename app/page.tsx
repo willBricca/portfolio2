@@ -1,5 +1,6 @@
 import SiteNav from "@/components/site-nav";
 import Image from "next/image";
+import HeroClient from "@/components/hero-client";
 import { Card, CardHeader, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 
@@ -12,9 +13,9 @@ const projects = [
     href: "/projects/fire-detecting-drone",
   },
   {
-    name: "Project Worlds Fastest Running Shoe",
+    name: "World's Fastest Running Shoe",
     summary: "Air bladder pods replacing conventional foam; drop-testing; rapid-prototyping.",
-    image: "/images/hypershoe.jpg",
+  image: "/images/UCSB.jpg",
     tags: ["Soft Robotics", "FEA", "Python"],
     href: "/projects/hypershoe",
   },
@@ -34,36 +35,31 @@ export default function Home() {
       <SiteNav />
   <main>
         {/* ========== HERO (kept) ========== */}
-  <section className="min-h-screen flex items-center pb-24 pt-24 section-animate">
-          <div className="w-full">
-            <h1 className="text-5xl md:text-7xl font-semibold tracking-tight leading-[1.05]">
-              Mechanical engineer building{" "}
-              <span className="text-zinc-500">control-driven</span> systems that ship.
-            </h1>
-            <p className="mt-6 text-lg text-zinc-600 max-w-2xl">
-              Robotics, soft mechanisms, vehicle dynamics. Python/MATLAB, CAD, controls.
-            </p>
-            <div className="mt-8 flex gap-3">
-              <a href="/cv.pdf" className="underline underline-offset-4">Download CV</a>
+        <HeroClient>
+            <div className="space-y-2">
+              <h1 className="text-4xl md:text-6xl font-medium tracking-tight text-white/80">
+                I like to
+              </h1>
+              <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-white">
+                build.
+              </h1>
             </div>
-          </div>
-        </section>
+            <div className="mt-10 flex gap-3">
+              <a href="/cv.pdf" className="text-white/80 text-lg hover:text-white transition-colors duration-200">Download CV</a>
+            </div>
+  </HeroClient>
 
         {/* ========== ABOUT (text left, image right) ========== */}
-  <section id="about" className="min-h-screen flex items-center section-animate">
+  <section id="about" className="min-h-screen flex items-center section-animate py-24">
           <div className="grid md:grid-cols-2 gap-10 w-full">
             {/* Text */}
             <div className="flex flex-col justify-center">
               <h2 className="text-3xl md:text-4xl font-semibold tracking-tight">About</h2>
               <p className="mt-4 text-zinc-600 leading-relaxed">
-                I’m Dylan, a UCSB mechanical engineer focused on controls,
-                autonomy, and soft systems. I like turning models into motion—fast:
-                derive, simulate, build, test, iterate. Recent work includes a
-                wildfire-mapping drone (controls + perception), high-return
-                variable-stiffness shoe pods (rigorous drop-test instrumentation),
-                and an autonomous rover (vision centroiding with surface-aware PID).
-                I care about clean interfaces, robust controllers, and shipping
-                hardware that actually works in the field.
+                I’m Dylan, a UCSB mechanical engineer who’s endlessly curious about how things 
+                work and finding solutions. I like being out in the world, facing real forces, seeing 
+                how theory holds up in the element. What drives me is the thrill of figuring 
+                something out for the first time and knowing I earned that understanding. 
               </p>
               <p className="mt-4 text-zinc-600">
                 Tooling I live in: Python/MATLAB for control + data, CAD/FEA for
@@ -88,10 +84,10 @@ export default function Home() {
               />
             </div>
           </div>
-        </section>
+  </section>
 
         {/* ========== PROJECTS (full swipe down) ========== */}
-  <section id="projects" className="min-h-screen flex items-center section-animate">
+  <section id="projects" className="min-h-screen flex items-center section-animate py-24">
           <div className="w-full">
             <h2 className="text-3xl md:text-4xl font-semibold tracking-tight">Projects</h2>
             <div className="mt-8 grid md:grid-cols-2 gap-6">
@@ -128,7 +124,7 @@ export default function Home() {
         </section>
 
         {/* ========== PUBLICATIONS (optional extra section) ========== */}
-  <section id="publications" className="min-h-screen flex items-center section-animate">
+  <section id="publications" className="min-h-screen flex items-center section-animate py-24">
           <div className="w-full">
             <h2 className="text-3xl md:text-4xl font-semibold tracking-tight">Publications & Reports</h2>
             <ul className="mt-4 list-disc pl-5 text-zinc-700 space-y-2">

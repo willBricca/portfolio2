@@ -16,10 +16,10 @@ export default function RoverProject() {
           <div className="aspect-video mb-8">
             <iframe
               className="w-full h-full rounded-xl object-cover"
-              src="https://www.youtube.com/embed/YOUR_VIDEO_ID_HERE"
+              src="https://www.youtube.com/embed/Lpi9gI_-LS4?autoplay=1&loop=1&playlist=Lpi9gI_-LS4&mute=1&rel=0"
               title="Autonomous Rover Demo"
               frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
               allowFullScreen
             />
           </div>
