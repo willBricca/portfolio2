@@ -37,15 +37,15 @@ export default function Home() {
         {/* ========== HERO (kept) ========== */}
         <HeroClient>
             <div className="space-y-2">
-              <h1 className="text-4xl md:text-6xl font-medium tracking-tight text-white/80">
+              <h1 className="text-4xl md:text-6xl font-medium tracking-tight text-white/80 hero-animate delay-1">
                 I like to
               </h1>
-              <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-white">
+              <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-white hero-animate delay-2">
                 build.
               </h1>
             </div>
             <div className="mt-10 flex gap-3">
-              <a href="/cv.pdf" className="text-white/80 text-lg hover:text-white transition-colors duration-200">Download CV</a>
+              <a href="/cv.pdf" className="text-white text-lg hover:text-white/90 transition-colors duration-200 hero-cta">Download CV</a>
             </div>
   </HeroClient>
 
@@ -67,8 +67,8 @@ export default function Home() {
                 to make the numbers honest.
               </p>
               <div className="mt-6">
-                <a className="underline underline-offset-4" href="mailto:dkauffmann@ucsb.edu">
-                  dkauffmann@ucsb.edu
+                <a href="/about" className="inline-flex items-center px-3 py-1.5 rounded-md bg-zinc-900 text-white hover:bg-zinc-800">
+                  Learn more
                 </a>
               </div>
             </div>
@@ -128,8 +128,7 @@ export default function Home() {
           <div className="w-full">
             <h2 className="text-3xl md:text-4xl font-semibold tracking-tight">Publications & Reports</h2>
             <ul className="mt-4 list-disc pl-5 text-zinc-700 space-y-2">
-              <li><a className="underline" href="/pdfs/hypershoe-report.pdf">Energy Return in Air-Bladder Pods (PDF)</a></li>
-              <li><a className="underline" href="/pdfs/tokenization-thesis.pdf">Swiss Real-Estate Tokenization (PDF)</a></li>
+              <li><a className="underline" href="#"> Upcoming Paper: Hypershoe</a></li>
             </ul>
           </div>
         </section>
