@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useCallback } from "react";
 import Image from "next/image";
 import SiteNav from "@/components/site-nav";
 
@@ -24,7 +24,7 @@ export default function AboutPage() {
   const lockScroll = () => {
     const y = window.scrollY;
     const sbw = getScrollbarWidth();
-    (document.body as any).dataset.lockY = String(y);
+    document.body.dataset.lockY = String(y);
     document.documentElement.style.setProperty("--sbw", `${sbw}px`);
     Object.assign(document.body.style, {
       position: "fixed",
@@ -38,7 +38,7 @@ export default function AboutPage() {
   };
 
   const unlockScroll = () => {
-    const y = Number((document.body as any).dataset.lockY || "0");
+    const y = Number(document.body.dataset.lockY || "0");
     Object.assign(document.body.style, {
       position: "",
       top: "",
@@ -50,10 +50,10 @@ export default function AboutPage() {
     } as CSSStyleDeclaration);
     document.documentElement.style.removeProperty("--sbw");
     window.scrollTo(0, y);
-    delete (document.body as any).dataset.lockY;
+    delete document.body.dataset.lockY;
   };
 
-  const fadeToWhite = async () => {
+  const fadeToWhite = useCallback(async () => {
     if (animating || onWhite) return;
     setAnimating(true);
     lockScroll();
@@ -68,9 +68,9 @@ export default function AboutPage() {
     await new Promise(r => setTimeout(r, 160));
     unlockScroll();
     setAnimating(false);
-  };
+  }, [animating, onWhite]);
 
-  const fadeToHero = async () => {
+  const fadeToHero = useCallback(async () => {
     if (animating || !onWhite) return;
     setAnimating(true);
     lockScroll();
@@ -85,7 +85,7 @@ export default function AboutPage() {
     await new Promise(r => setTimeout(r, 160));
     unlockScroll();
     setAnimating(false);
-  };
+  }, [animating, onWhite]);
 
   useEffect(() => {
     let touchStartY = 0;
@@ -133,7 +133,7 @@ export default function AboutPage() {
       window.removeEventListener("touchstart", onTouchStart);
       window.removeEventListener("touchmove", onTouchMove);
     };
-  }, [onWhite, animating]);
+  }, [onWhite, animating, fadeToWhite, fadeToHero]);
 
   return (
     <>

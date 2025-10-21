@@ -1,5 +1,4 @@
 import SiteNav from "@/components/site-nav";
-import Image from "next/image";
 import { Card, CardHeader, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 

@@ -53,7 +53,7 @@ export default function SiteNav() {
       window.removeEventListener("scroll", onScrollWin);
       if (about) about.removeEventListener("scroll", onScrollAbout);
     };
-  }, []);
+  }, [pathname]);
 
   return (
     <>

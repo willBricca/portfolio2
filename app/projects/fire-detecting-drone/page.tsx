@@ -1,5 +1,4 @@
 import SiteNav from "@/components/site-nav";
-import { Card, CardHeader, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 
 export default function FireDroneProject() {
