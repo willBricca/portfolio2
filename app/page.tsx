@@ -91,37 +91,44 @@ export default function Home() {
           </div>
   </section>
 
-        {/* ========== PROJECTS (full swipe down) ========== */}
+        {/* ========== PROJECTS (full-width horizontal cards stacked vertically) ========== */}
   <section id="projects" className="min-h-screen flex items-center section-animate py-24">
           <div className="w-full">
-            <h2 className="text-3xl md:text-4xl font-semibold tracking-tight">Projects</h2>
-            <div className="mt-8 grid md:grid-cols-2 gap-6">
+            <h2 className="text-3xl md:text-4xl font-semibold tracking-tight mb-8">Projects</h2>
+                        <div className="space-y-4">
               {projects.map((p) => (
-                <Card key={p.name} className="overflow-hidden hover:shadow-sm transition-shadow">
-                  <CardHeader className="space-y-2">
-                    <h3 className="text-xl font-semibold">
-                      {p.href ? (
-                        <a href={p.href} className="underline hover:no-underline">{p.name}</a>
-                      ) : (
-                        p.name
-                      )}
-                    </h3>
-                    <div className="flex flex-wrap gap-2">
-                      {(p.tags ?? []).map((t) => <Badge key={t}>{t}</Badge>)}
-                    </div>
-                  </CardHeader>
-                  <CardContent className="space-y-3">
-                    <p className="text-zinc-600">{p.summary}</p>
+                <Card key={p.name} className="group overflow-hidden hover:shadow-xl transition-all duration-300 border-zinc-200/60 bg-white/90 backdrop-blur-sm rounded-xl p-0">
+                  <div className="flex flex-col md:flex-row h-full">
+                    {/* Image on the left, perfectly aligned with card borders */}
                     {p.image && (
-                      <Image
-                        src={p.image}
-                        alt={p.name}
-                        width={1200}
-                        height={800}
-                        className="rounded-xl aspect-[3/2] object-cover"
-                      />
+                      <div className="relative flex-shrink-0 w-full md:w-[280px] h-48 md:h-36 overflow-hidden rounded-t-xl md:rounded-t-none md:rounded-l-xl">
+                        <Image
+                          src={p.image}
+                          alt={p.name}
+                          fill
+                          className="object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
+                        />
+                      </div>
                     )}
-                  </CardContent>
+                    {/* Content with Apple-like spacing and typography */}
+                    <div className="flex-1 flex flex-col justify-center px-6 py-5 md:px-8 md:py-6">
+                      <h3 className="text-lg md:text-xl font-semibold tracking-tight mb-2 text-zinc-900">
+                        {p.href ? (
+                          <a href={p.href} className="hover:text-zinc-600 transition-colors duration-200">{p.name}</a>
+                        ) : (
+                          p.name
+                        )}
+                      </h3>
+                      <div className="flex flex-wrap gap-2 mb-3">
+                        {(p.tags ?? []).map((t) => (
+                          <Badge key={t} variant="secondary" className="text-xs px-2.5 py-0.5 bg-zinc-100 text-zinc-700 border-0 hover:bg-zinc-200 transition-colors">
+                            {t}
+                          </Badge>
+                        ))}
+                      </div>
+                      <p className="text-zinc-600 text-sm md:text-base leading-relaxed">{p.summary}</p>
+                    </div>
+                  </div>
                 </Card>
               ))}
             </div>
