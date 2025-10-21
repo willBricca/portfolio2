@@ -1,10 +1,18 @@
-/* Hide scrollbar for Chrome, Safari and Opera */
-::-webkit-scrollbar {
-  display: none;
+/* Always hide scrollbars while keeping scrolling functional */
+html, body {
+  overflow-y: auto; /* keep vertical scroll */
+  overflow-x: hidden; /* prevent bottom bar */
 }
 
-/* Hide scrollbar for IE, Edge and Firefox */
-* {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
+/* Firefox */
+* { scrollbar-width: none !important; }
+
+/* Legacy IE/Edge */
+* { -ms-overflow-style: none; }
+
+/* WebKit (Chrome/Safari/Edge Chromium) */
+*::-webkit-scrollbar {
+  width: 0 !important;
+  height: 0 !important;
+  display: none !important;
 }

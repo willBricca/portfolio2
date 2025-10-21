@@ -133,8 +133,8 @@ html {
 /* Subtle custom scrollbar: thin and low-contrast */
 /* WebKit browsers */
 ::-webkit-scrollbar {
-  width: 10px;
-  height: 10px;
+  width: 6px;
+  height: 6px;
 }
 
 ::-webkit-scrollbar-track {
@@ -142,9 +142,9 @@ html {
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: rgba(15, 23, 42, 0.12); /* subtle dark on light */
+  background-color: rgba(15, 23, 42, 0.08); /* even lighter, more minimal */
   border-radius: 9999px;
-  border: 2px solid transparent; /* gives pseudo-padding */
+  border: 1px solid transparent;
   background-clip: padding-box;
 }
 
@@ -155,7 +155,7 @@ html {
 /* Firefox */
 * {
   scrollbar-width: thin;
-  scrollbar-color: rgba(15, 23, 42, 0.12) transparent;
+  scrollbar-color: rgba(15, 23, 42, 0.08) transparent;
 }
 
 /* Removed scroll-snap for natural, Apple-like scroll feel */
@@ -163,5 +163,16 @@ html {
 /* ensure smooth scroll (timing controlled by user agent) */
 html {
   scroll-behavior: smooth;
+}
+
+/* Utility to hide scrollbars page-scoped (we'll toggle this on About) */
+html.hide-scrollbars, html.hide-scrollbars body {
+  /* Firefox */
+  scrollbar-width: none;
+}
+html.hide-scrollbars body::-webkit-scrollbar {
+  width: 0 !important;
+  height: 0 !important;
+  display: none !important;
 }
 

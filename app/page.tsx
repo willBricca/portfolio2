@@ -3,6 +3,8 @@ import Image from "next/image";
 import HeroClient from "@/components/hero-client";
 import { Card, CardHeader, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import HomeDots from "@/components/home-dots";
+import ScrollTopOnLoad from "@/components/scroll-top-on-load";
 
 const projects = [
   {
@@ -33,9 +35,11 @@ export default function Home() {
   return (
     <>
       <SiteNav />
+    <ScrollTopOnLoad />
   <main>
         {/* ========== HERO (kept) ========== */}
-        <HeroClient>
+    <section id="hero">
+      <HeroClient>
             <div className="space-y-2">
               <h1 className="text-4xl md:text-6xl font-medium tracking-tight text-white/80 hero-animate delay-1">
                 I like to
@@ -47,7 +51,8 @@ export default function Home() {
             <div className="mt-10 flex gap-3">
               <a href="/cv.pdf" className="text-white text-lg hover:text-white/90 transition-colors duration-200 hero-cta">Download CV</a>
             </div>
-  </HeroClient>
+      </HeroClient>
+    </section>
 
         {/* ========== ABOUT (text left, image right) ========== */}
   <section id="about" className="min-h-screen flex items-center section-animate py-24">
@@ -140,6 +145,7 @@ export default function Home() {
             Email: <a className="underline" href="mailto:dkauffmann@ucsb.edu">dkauffmann@ucsb.edu</a>
           </p>
         </section>
+      <HomeDots />
       </main>
     </>
   );
