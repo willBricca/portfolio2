@@ -85,7 +85,7 @@ export default function SiteNav() {
                 }
               }}
             >
-              DK
+              WB
             </Link>
             <nav className="flex items-center gap-6 text-sm">
               <Link href="/#projects">Projects</Link>
