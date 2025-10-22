@@ -89,7 +89,7 @@ export default function SiteNav() {
             </Link>
             <nav className="flex items-center gap-6 text-sm">
               <Link href="/#projects">Projects</Link>
-              <Link href="/#publications">Publications</Link>
+              <Link href="/#experience">Work Experience</Link>
               <Button asChild size="sm"><Link href="/about">About Me</Link></Button>
             </nav>
           </div>

@@ -6,7 +6,8 @@ import SiteNav from "@/components/site-nav";
 
 const HERO_SRC = "/images/DeathValley.jpeg";
 const IRONMAN_SRC = "/images/Ironman.jpg";
-const SAILING_SRC = "/images/croatiaboat.jpg";
+const SAILING_SRC = "/images/croatiaboatlisc.jpg";
+const HELICAN_SRC = "/images/helicanback.jpg";
 
 export default function AboutPage() {
   const [onWhite, setOnWhite] = useState(false);
@@ -168,6 +169,26 @@ export default function AboutPage() {
             sizes="100vw"
             className="object-cover"
           />
+          {/* Apple-esque text overlay */}
+          <div 
+            className="absolute inset-0 flex items-center justify-center"
+            style={{
+              opacity: animating ? 0 : 1,
+              transition: 'opacity 200ms ease-out',
+              paddingBottom: '62px',
+            }}
+          >
+            <h1 
+              className="text-white text-4xl md:text-6xl lg:text-7xl tracking-normal"
+              style={{
+                textShadow: '0 3px 25px rgba(0,0,0,0.35)',
+                letterSpacing: '0.01em',
+                fontWeight: 325,
+              }}
+            >
+              and so, it begins
+            </h1>
+          </div>
         </div>
       ) : (
         <div className="fixed inset-0 bg-white" style={{ zIndex: BG_Z }} />
@@ -198,20 +219,32 @@ export default function AboutPage() {
             <h2 className="text-3xl md:text-5xl font-semibold tracking-tight text-zinc-900">
               About Me
             </h2>
-            <p className="mt-4 text-zinc-700 md:text-lg leading-relaxed max-w-3xl">
-              I’m Dylan, a UCSB mechanical engineer focused on systems that work
-              outside the lab. Controls, perception, CAD/FEA, and rapid
-              iteration are my core tools.
-            </p>
+            <div className="mt-4 text-zinc-700 md:text-lg leading-relaxed max-w-3xl space-y-4">
+              <p>
+                My name is Dylan Kauffmann. I've always liked building stuff, mostly because it's 
+                the fastest way to learn. I enjoy taking big leaps and trying things that scare me. 
+                Usually the bigger the challenge, the more execited I am, which can be both a blessing and a curse.
+              </p>
+              <p>
+                I study mechanical engineering, but most of what I've learned has come from 
+                messing around with ideas until they work. I like projects that make me think a 
+                little differently each time — things that force me to learn, not just repeat.
+              </p>
+              <p>
+                Outside of all that, I like being outside. 
+                Traveling, sailing, hiking — anything that reminds me how big the world is. 
+                I think that's what I like most about engineering too: it's just another way to explore.
+              </p>
+            </div>
           </div>
         </section>
 
         <section
-          className="min-h-[100svh] w-full bg-white"
+          className="min-h-[100svh] w-full bg-white flex items-center"
           aria-label="Extracurricular Accomplishments"
         >
-          <div className="mx-auto max-w-6xl px-4 md:px-8 py-16 md:py-24">
-            <header className="mb-8 md:mb-12">
+          <div className="mx-auto max-w-7xl px-4 md:px-8 py-16 w-full">
+            <header className="mb-5 md:mb-6">
               <h2 className="text-3xl md:text-5xl font-semibold tracking-tight text-zinc-900">
                 Extracurricular Accomplishments
               </h2>
@@ -220,28 +253,37 @@ export default function AboutPage() {
               </p>
             </header>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-              <article className="rounded-2xl overflow-hidden border border-zinc-200/80 bg-white shadow-sm">
-                <div className="relative w-full aspect-[4/3]">
+            <div className="flex gap-5 overflow-x-auto pb-4 snap-x snap-mandatory">
+              <article className="rounded-2xl overflow-hidden border border-zinc-200/80 bg-white shadow-sm flex-shrink-0 flex-1 min-w-0 snap-center">
+                <div className="relative w-full aspect-[3/4]">
                   <Image src={IRONMAN_SRC} alt="Ironman finish" fill className="object-cover" />
                 </div>
                 <div className="p-5 md:p-6">
                   <h3 className="text-xl md:text-2xl font-semibold text-zinc-900">
                     Ironman Texas 2025
                   </h3>
-                  <p className="mt-2 text-zinc-700">A race.</p>
                 </div>
               </article>
 
-              <article className="rounded-2xl overflow-hidden border border-zinc-200/80 bg-white shadow-sm">
-                <div className="relative w-full aspect-[4/3]">
+              <article className="rounded-2xl overflow-hidden border border-zinc-200/80 bg-white shadow-sm flex-shrink-0 flex-1 min-w-0 snap-center">
+                <div className="relative w-full aspect-[3/4]">
                   <Image src={SAILING_SRC} alt="Sailing voyage" fill className="object-cover" />
                 </div>
                 <div className="p-5 md:p-6">
                   <h3 className="text-xl md:text-2xl font-semibold text-zinc-900">
-                    France–Croatia Sailing Voyage
+                    Sailing: France to Croatia
                   </h3>
-                  <p className="mt-2 text-zinc-700">A voyage.</p>
+                </div>
+              </article>
+
+              <article className="rounded-2xl overflow-hidden border border-zinc-200/80 bg-white shadow-sm flex-shrink-0 flex-1 min-w-0 snap-center">
+                <div className="relative w-full aspect-[3/4]">
+                  <Image src={HELICAN_SRC} alt="Backcountry skiing" fill className="object-cover" />
+                </div>
+                <div className="p-5 md:p-6">
+                  <h3 className="text-xl md:text-2xl font-semibold text-zinc-900">
+                    Backcountry Skiing
+                  </h3>
                 </div>
               </article>
             </div>
