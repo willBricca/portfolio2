@@ -3,7 +3,7 @@ import "./globals.css";
 import "./section-animate.css";
 
 export const metadata: Metadata = {
-  title: "will Bricca — Mechanical Engineering",
+  title: "Will Bricca — Mechanical Engineering",
   description: "Projects, Experience, and contact.",
 };
 

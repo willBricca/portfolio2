@@ -4,10 +4,10 @@ import { useEffect, useRef, useState, useCallback } from "react";
 import Image from "next/image";
 import SiteNav from "@/components/site-nav";
 
-const HERO_SRC = "/images/DeathValley.jpeg";
-const IRONMAN_SRC = "/images/Ironman.jpg";
-const SAILING_SRC = "/images/croatiaboatlisc.jpg";
-const HELICAN_SRC = "/images/helicanback.jpg";
+const HERO_SRC = "/images/swissland.jpg";
+const IRONMAN_SRC = "/images/ironman_finisher.jpg";
+const controllers_SRC = "/images/controllers.jpg";
+const osaka_SRC = "/images/osaka1.JPG";
 
 export default function AboutPage() {
   const [onWhite, setOnWhite] = useState(false);
@@ -186,7 +186,7 @@ export default function AboutPage() {
                 fontWeight: 325,
               }}
             >
-              and so, it begins
+              I'm Will
             </h1>
           </div>
         </div>
@@ -216,24 +216,23 @@ export default function AboutPage() {
           aria-label="About Me"
         >
           <div className="mx-auto max-w-6xl px-4 md:px-8">
-            <h2 className="text-3xl md:text-5xl font-semibold tracking-tight text-zinc-900">
-              About Me
-            </h2>
+
             <div className="mt-4 text-zinc-700 md:text-lg leading-relaxed max-w-3xl space-y-4">
               <p>
-                My name is Dylan Kauffmann. I've always liked building stuff, mostly because it's 
-                the fastest way to learn. I enjoy taking big leaps and trying things that scare me. 
-                Usually the bigger the challenge, the more execited I am, which can be both a blessing and a curse.
+                ... and I truly love the iterative process of building things, and 
+                watching them fail. I've failed more in the past two years than in my entire life
+                before that, and it's been an incredible time of growth. 
               </p>
               <p>
-                I study mechanical engineering, but most of what I've learned has come from 
-                messing around with ideas until they work. I like projects that make me think a 
-                little differently each time — things that force me to learn, not just repeat.
+                Starting out with Mechanical Engineering, it took time to find my passion within it.
+                I've quickly realized over the second half of my degree that watching autonomous systems 
+                interact with the world based on simple first principles is special.
               </p>
               <p>
-                Outside of all that, I like being outside. 
-                Traveling, sailing, hiking — anything that reminds me how big the world is. 
-                I think that's what I like most about engineering too: it's just another way to explore.
+                Beyond engineering, I enjoy producing and analyzing movie soundtracks. Songs from Tron, Interstellar, and The Lion King: 
+                all incredible backdrops for building. I love the clarity that endurance sports bring, and the 
+                humbling feeling of being outdoors. Most of all, I love my family and friends. 
+                There's nothing better than building with or simply living alongside good, curious people. 
               </p>
             </div>
           </div>
@@ -246,10 +245,10 @@ export default function AboutPage() {
           <div className="mx-auto max-w-7xl px-4 md:px-8 py-16 w-full">
             <header className="mb-5 md:mb-6">
               <h2 className="text-3xl md:text-5xl font-semibold tracking-tight text-zinc-900">
-                Extracurricular Accomplishments
+                Extracurricular Milestones and Experiences
               </h2>
               <p className="mt-3 text-zinc-600 md:text-lg">
-                Milestones that left an indelible stamp.
+                Things that left a stamp.
               </p>
             </header>
 
@@ -260,29 +259,29 @@ export default function AboutPage() {
                 </div>
                 <div className="p-5 md:p-6">
                   <h3 className="text-xl md:text-2xl font-semibold text-zinc-900">
-                    Ironman Texas 2025
+                    Ironman California 2025
                   </h3>
                 </div>
               </article>
 
               <article className="rounded-2xl overflow-hidden border border-zinc-200/80 bg-white shadow-sm flex-shrink-0 flex-1 min-w-0 snap-center">
                 <div className="relative w-full aspect-[3/4]">
-                  <Image src={SAILING_SRC} alt="Sailing voyage" fill className="object-cover" />
+                  <Image src={controllers_SRC} alt="Sailing voyage" fill className="object-cover" />
                 </div>
                 <div className="p-5 md:p-6">
                   <h3 className="text-xl md:text-2xl font-semibold text-zinc-900">
-                    Sailing: France to Croatia
+                    Winning Best Presentation in UCSB Junior Capstone 
                   </h3>
                 </div>
               </article>
 
               <article className="rounded-2xl overflow-hidden border border-zinc-200/80 bg-white shadow-sm flex-shrink-0 flex-1 min-w-0 snap-center">
                 <div className="relative w-full aspect-[3/4]">
-                  <Image src={HELICAN_SRC} alt="Backcountry skiing" fill className="object-cover" />
+                  <Image src={osaka_SRC} alt="Backcountry skiing" fill className="object-cover" />
                 </div>
                 <div className="p-5 md:p-6">
                   <h3 className="text-xl md:text-2xl font-semibold text-zinc-900">
-                    Backcountry Skiing
+                    Study Abroad at Osaka University
                   </h3>
                 </div>
               </article>

@@ -8,17 +8,17 @@ import ScrollTopOnLoad from "@/components/scroll-top-on-load";
 
 const projects = [
   {
-    name: "VTOL Fire-Mapping Drone",
+    name: "Fire-Mapping Drone",
     summary:
-      "Autonomous VTOL drone platform designed for real-world wildfire surveillance. Integrated long-range telemetry, CAN-bus data, and aerial mapping capabilities.",
-    image: "/images/drone.jpg",
+      "Both a quad drone for imaging testing, in tandem with development of a VTOL fixed-wing platform for extended wildfire monitoring.",
+    image: "/images/fpv_initial.jpg",
     tags: ["Aerial Robotics", "Controls", "VTOL", "Design"],
-    href: "/projects/fire-mapping-drone",
+    href: "/projects/fire-detecting-drone",
   },
   {
     name: "Junior Capstone Autonomous Baseball Retriever",
     summary:
-      "Capstone project: vision-based centroiding and surface-aware PID to retrieve baseballs autonomously.",
+      "Autonomous rover designed to retrieve baseballs from a field, using computer vision and PID control for navigation.",
     image: "/images/rover.png",
     tags: ["Controls", "SolidWorks", "Prototyping"],
     href: "/projects/autonomous-rover",
@@ -26,18 +26,10 @@ const projects = [
   {
     name: "Osaka Research",
     summary:
-      "Experimental research at Osaka University focused on rehabilitative running augmentation and soft system design.",
+      "Experimental research at Osaka University focused on rehabilitative running augmentation.",
     image: "/images/osaka-image.jpg",
     tags: ["Design", "MATLAB", "Prototyping"],
     href: "/projects/osaka-research",
-  },
-  {
-    name: "FPV Drone",
-    summary:
-      "First-person-view drone project focused on fast flight dynamics and FPV systems integration.",
-    image: "/images/drone1.jpg",
-    tags: ["Aerial Robotics", "Controls", "Design"],
-    href: "/projects/fpv-drone",
   },
 ];
 
@@ -45,9 +37,9 @@ const workExperience = [
   {
     title: "Mechanical Engineer",
     company: "Dragon Q Energy",
-    duration: "Present",
+    duration: "September 2024 - Present",
     summary:
-      "Design and fabrication of lithium-ion battery housings (48p14s modules, 7.5 kWh MVPs). Lead bus-bar design, welding, and CAN-bus telemetry integration for large-scale battery packs. Automating assembly workflows to scale production throughput.",
+      "Design and fabrication of lithium-ion battery housing (48p14s modules, 7.5 kWh MVPs). Lead bus-bar design, welding, and overall production. Automating assembly workflow to begin scaling production currently.",
     tags: ["Mechanical Design", "Energy Systems", "CAN-Bus", "Prototyping"],
     logo: "/images/DQE_logo.png",
   },
@@ -73,10 +65,10 @@ export default function Home() {
           <HeroClient>
             <div className="space-y-2">
               <h1 className="text-4xl md:text-6xl font-medium tracking-tight text-white/80 hero-animate delay-1">
-                I like to
+                I like
               </h1>
               <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-white hero-animate delay-2">
-                build.
+                building.
               </h1>
             </div>
             <div className="mt-10 flex gap-3">
@@ -101,14 +93,13 @@ export default function Home() {
                 About
               </h2>
               <p className="mt-4 text-zinc-600 leading-relaxed">
-                I’m Will Bricca, and I love building — it’s how I learn best.
+                I’m Will Bricca, and I appreciate building. It is, in my opinion, how we all learn best.
                 At Dragon Q Energy, I’ve found that I thrive in fast-paced environments 
                 where ideas move quickly from concept to deployment.
                 Through both personal and academic projects, I’ve designed, built, 
                 and tested FPV drones and autonomous rovers, constantly failing along the way.
                 My experience also includes research at Osaka University in inverse 
-                kinematics, and I’m currently developing a VTOL fire-mapping drone 
-                as part of my senior capstone project.
+                kinematics where I worked on running augmentation techniques. 
               </p>
               <div className="mt-6">
                 <a
@@ -154,7 +145,7 @@ export default function Home() {
                           src={p.image}
                           alt={p.name}
                           fill
-                          className="object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
+                          className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                         />
                       </div>
                     )}
@@ -200,7 +191,7 @@ export default function Home() {
         >
           <div className="w-full">
             <h2 className="text-3xl md:text-4xl font-semibold tracking-tight mb-8">
-              Work Experience
+              Work Experience 
             </h2>
             <div className="space-y-4">
               {workExperience.map((exp, idx) => (
@@ -210,12 +201,12 @@ export default function Home() {
                 >
                   <div className="flex flex-col md:flex-row h-full">
                     {exp.logo && (
-                      <div className="relative flex-shrink-0 w-full md:w-[320px] h-56 md:h-52 overflow-hidden rounded-t-xl md:rounded-t-none md:rounded-l-xl bg-white flex items-center justify-center">
+                      <div className="relative flex-shrink-0 w-full md:w-[350px] h-56 md:h-52 overflow-hidden rounded-t-xl md:rounded-t-none md:rounded-l-xl bg-white flex items-center justify-center">
                         <Image
                           src={exp.logo}
                           alt={exp.company}
                           fill
-                          className="object-contain scale-110 group-hover:scale-125 transition-transform duration-700 ease-out"
+                          className="object-contain scale-100 group-hover:scale-102 transition-transform duration-700 ease-out"
                         />
                       </div>
                     )}
@@ -260,7 +251,6 @@ export default function Home() {
             Email:{" "}
             <a className="underline" href="mailto:briccawill@gmail.com">
               briccawill@gmail.com
-              (916)-833-5926
             </a>
           </p>
         </section>
