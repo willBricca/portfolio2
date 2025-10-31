@@ -6,13 +6,15 @@ import SiteNav from "@/components/site-nav";
 
 const HERO_SRC = "/images/swissland.jpg";
 const IRONMAN_SRC = "/images/ironman_finisher.jpg";
-const controllers_SRC = "/images/controllers.jpg";
-const osaka_SRC = "/images/osaka1.JPG";
+const OSAKA_SRC = "/images/osaka1.jpg";
+const CONTROLLERS_SRC = "/images/controllers.jpg";
 
 export default function AboutPage() {
   const [onWhite, setOnWhite] = useState(false);
   const [animating, setAnimating] = useState(false);
+  const [currentCard, setCurrentCard] = useState(0);
   const overlayRef = useRef<HTMLDivElement | null>(null);
+  const scrollContainerRef = useRef<HTMLDivElement | null>(null);
 
   const NAV_Z = 3000;
   const OVERLAY_Z = 1200;
@@ -69,7 +71,7 @@ export default function AboutPage() {
     await new Promise(r => setTimeout(r, 160));
     unlockScroll();
     setAnimating(false);
-  }, [animating, onWhite]);
+  }, [animating, onWhite, lockScroll]);
 
   const fadeToHero = useCallback(async () => {
     if (animating || !onWhite) return;
@@ -86,7 +88,7 @@ export default function AboutPage() {
     await new Promise(r => setTimeout(r, 160));
     unlockScroll();
     setAnimating(false);
-  }, [animating, onWhite]);
+  }, [animating, onWhite, lockScroll]);
 
   useEffect(() => {
     let touchStartY = 0;
@@ -135,6 +137,32 @@ export default function AboutPage() {
       window.removeEventListener("touchmove", onTouchMove);
     };
   }, [onWhite, animating, fadeToWhite, fadeToHero]);
+
+  // Carousel scroll tracking
+  useEffect(() => {
+    const container = scrollContainerRef.current;
+    if (!container) return;
+
+    const handleScroll = () => {
+      const cardWidth = container.scrollWidth / 5; // 5 cards total
+      const scrollPos = container.scrollLeft;
+      const index = Math.round(scrollPos / cardWidth);
+      setCurrentCard(index);
+    };
+
+    container.addEventListener('scroll', handleScroll);
+    return () => container.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const scrollToCard = (index: number) => {
+    const container = scrollContainerRef.current;
+    if (!container) return;
+    const cardWidth = container.scrollWidth / 5; // 5 cards total
+    container.scrollTo({
+      left: cardWidth * index,
+      behavior: 'smooth'
+    });
+  };
 
   return (
     <>
@@ -245,46 +273,77 @@ export default function AboutPage() {
           <div className="mx-auto max-w-7xl px-4 md:px-8 py-16 w-full">
             <header className="mb-5 md:mb-6">
               <h2 className="text-3xl md:text-5xl font-semibold tracking-tight text-zinc-900">
-                Extracurricular Milestones and Experiences
+                Extracurricular Accomplishments
               </h2>
               <p className="mt-3 text-zinc-600 md:text-lg">
-                Things that left a stamp.
+                Milestones that left an indelible stamp.
               </p>
             </header>
 
-            <div className="flex gap-5 overflow-x-auto pb-4 snap-x snap-mandatory">
-              <article className="rounded-2xl overflow-hidden border border-zinc-200/80 bg-white shadow-sm flex-shrink-0 flex-1 min-w-0 snap-center">
-                <div className="relative w-full aspect-[3/4]">
-                  <Image src={IRONMAN_SRC} alt="Ironman finish" fill className="object-cover" />
-                </div>
-                <div className="p-5 md:p-6">
-                  <h3 className="text-xl md:text-2xl font-semibold text-zinc-900">
-                    Ironman California 2025
-                  </h3>
-                </div>
-              </article>
+            <div className="relative">
+              <div 
+                ref={scrollContainerRef}
+                className="flex gap-5 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-hide"
+                style={{
+                  scrollSnapType: 'x mandatory',
+                  WebkitOverflowScrolling: 'touch',
+                }}
+              >
+                <article className="rounded-2xl overflow-hidden border border-zinc-200/80 bg-white shadow-sm flex-shrink-0 snap-center" style={{ width: 'calc(33.333% - 13.33px)' }}>
+                  <div className="relative w-full aspect-[3/4]">
+                    <Image src={IRONMAN_SRC} alt="Ironman finish" fill className="object-cover" />
+                  </div>
+                  <div className="p-5 md:p-6">
+                    <h3 className="text-xl md:text-2xl font-semibold text-zinc-900">
+                      Ironman California 2025
+                    </h3>
+                  </div>
+                </article>
 
-              <article className="rounded-2xl overflow-hidden border border-zinc-200/80 bg-white shadow-sm flex-shrink-0 flex-1 min-w-0 snap-center">
-                <div className="relative w-full aspect-[3/4]">
-                  <Image src={controllers_SRC} alt="Sailing voyage" fill className="object-cover" />
-                </div>
-                <div className="p-5 md:p-6">
-                  <h3 className="text-xl md:text-2xl font-semibold text-zinc-900">
-                    Winning Best Presentation in UCSB Junior Capstone 
-                  </h3>
-                </div>
-              </article>
+                <article className="rounded-2xl overflow-hidden border border-zinc-200/80 bg-white shadow-sm flex-shrink-0 snap-center" style={{ width: 'calc(33.333% - 13.33px)' }}>
+                  <div className="relative w-full aspect-[3/4]">
+                    <Image src={OSAKA_SRC} alt="Study abroad in Osaka" fill className="object-cover" />
+                  </div>
+                  <div className="p-5 md:p-6">
+                    <h3 className="text-xl md:text-2xl font-semibold text-zinc-900">
+                      Study Abroad: Osaka, Japan
+                    </h3>
+                  </div>
+                </article>
 
-              <article className="rounded-2xl overflow-hidden border border-zinc-200/80 bg-white shadow-sm flex-shrink-0 flex-1 min-w-0 snap-center">
-                <div className="relative w-full aspect-[3/4]">
-                  <Image src={osaka_SRC} alt="Backcountry skiing" fill className="object-cover" />
-                </div>
-                <div className="p-5 md:p-6">
-                  <h3 className="text-xl md:text-2xl font-semibold text-zinc-900">
-                    Study Abroad at Osaka University
-                  </h3>
-                </div>
-              </article>
+                <article className="rounded-2xl overflow-hidden border border-zinc-200/80 bg-white shadow-sm flex-shrink-0 snap-center" style={{ width: 'calc(33.333% - 13.33px)' }}>
+                  <div className="relative w-full aspect-[3/4]">
+                    <Image src={CONTROLLERS_SRC} alt="Sailing voyage" fill className="object-cover" />
+                  </div>
+                  <div className="p-5 md:p-6">
+                    <h3 className="text-xl md:text-2xl font-semibold text-zinc-900">
+                      Winning Best Presentation: Junior Capstone UCSB
+                    </h3>
+                  </div>
+                </article>
+
+                
+              </div>
+
+              {/* Navigation Dots */}
+              <div className="flex justify-center gap-2 mt-6">
+                {[0, 1, 2].map((index) => (
+                  <button
+                    key={index}
+                    onClick={() => scrollToCard(index)}
+                    className="transition-all duration-300"
+                    aria-label={`Go to card ${index + 1}`}
+                    style={{
+                      width: currentCard === index ? '24px' : '8px',
+                      height: '8px',
+                      borderRadius: '4px',
+                      backgroundColor: currentCard === index ? '#18181b' : '#d4d4d8',
+                      border: 'none',
+                      cursor: 'pointer',
+                    }}
+                  />
+                ))}
+              </div>
             </div>
           </div>
         </section>
@@ -323,7 +382,15 @@ export default function AboutPage() {
 
   /* 3) Prevent accidental horizontal scroll nudges */
   html, body { overflow-x: hidden; }
-`}</style>
 
+  /* 4) Hide scrollbar for carousel */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+`}</style>
 
 
