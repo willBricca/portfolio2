@@ -71,7 +71,7 @@ export default function AboutPage() {
     await new Promise(r => setTimeout(r, 160));
     unlockScroll();
     setAnimating(false);
-  }, [animating, onWhite, lockScroll]);
+  }, [animating, onWhite, lockScroll, unlockScroll]);
 
   const fadeToHero = useCallback(async () => {
     if (animating || !onWhite) return;
@@ -88,7 +88,7 @@ export default function AboutPage() {
     await new Promise(r => setTimeout(r, 160));
     unlockScroll();
     setAnimating(false);
-  }, [animating, onWhite, lockScroll]);
+  }, [animating, onWhite, lockScroll, unlockScroll]);
 
   useEffect(() => {
     let touchStartY = 0;
@@ -214,7 +214,7 @@ export default function AboutPage() {
                 fontWeight: 325,
               }}
             >
-              I'm Will
+              I&apos;m Will
             </h1>
           </div>
         </div>
