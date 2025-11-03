@@ -24,7 +24,7 @@ export default function AboutPage() {
   const getScrollbarWidth = () =>
     window.innerWidth - document.documentElement.clientWidth;
 
-  const lockScroll = () => {
+  const lockScroll = useCallback(() => {
     const y = window.scrollY;
     const sbw = getScrollbarWidth();
     document.body.dataset.lockY = String(y);
@@ -38,9 +38,9 @@ export default function AboutPage() {
       overflow: "hidden",
       paddingRight: `var(--sbw)`,
     } as CSSStyleDeclaration);
-  };
+  }, []);
 
-  const unlockScroll = () => {
+  const unlockScroll = useCallback(() => {
     const y = Number(document.body.dataset.lockY || "0");
     Object.assign(document.body.style, {
       position: "",
@@ -54,7 +54,7 @@ export default function AboutPage() {
     document.documentElement.style.removeProperty("--sbw");
     window.scrollTo(0, y);
     delete document.body.dataset.lockY;
-  };
+  }, []);
 
   const fadeToWhite = useCallback(async () => {
     if (animating || onWhite) return;
@@ -248,19 +248,19 @@ export default function AboutPage() {
             <div className="mt-4 text-zinc-700 md:text-lg leading-relaxed max-w-3xl space-y-4">
               <p>
                 ... and I truly love the iterative process of building things, and 
-                watching them fail. I've failed more in the past two years than in my entire life
-                before that, and it's been an incredible time of growth. 
+                watching them fail. I&apos;ve failed more in the past two years than in my entire life
+                before that, and it&apos;s been an incredible time of growth. 
               </p>
               <p>
                 Starting out with Mechanical Engineering, it took time to find my passion within it.
-                I've quickly realized over the second half of my degree that watching autonomous systems 
+                I&apos;ve quickly realized over the second half of my degree that watching autonomous systems 
                 interact with the world based on simple first principles is special.
               </p>
               <p>
                 Beyond engineering, I enjoy producing and analyzing movie soundtracks. Songs from Tron, Interstellar, and The Lion King: 
                 all incredible backdrops for building. I love the clarity that endurance sports bring, and the 
                 humbling feeling of being outdoors. Most of all, I love my family and friends. 
-                There's nothing better than building with or simply living alongside good, curious people. 
+                There&apos;s nothing better than building with or simply living alongside good, curious people. 
               </p>
             </div>
           </div>
