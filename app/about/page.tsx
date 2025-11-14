@@ -248,8 +248,8 @@ export default function AboutPage() {
             <div className="mt-4 text-zinc-700 md:text-lg leading-relaxed max-w-3xl space-y-4">
               <p>
                 ... and I truly love the iterative process of building things, and 
-                watching them fail. I've failed more in the past two years than ever before, and 
-                coudn't be more grateful because of it. 
+                watching them fail. I&apos;ve failed more in the past two years than ever before, and 
+                couldn&apos;t be more grateful because of it. 
               </p>
               <p>
                 Starting out with Mechanical Engineering, it took time to find my passion within it.
@@ -261,7 +261,7 @@ export default function AboutPage() {
                 Beyond engineering, I enjoy producing and enjoying movie soundtracks. Songs from Tron, Interstellar, and The Lion King: 
                 all incredible backdrops for building. I love the clarity that endurance sports bring, and the 
                 humbling feeling of being outdoors. Most of all, I love my family and friends. 
-                There's nothing better than building with or simply living alongside good, curious people. 
+                There&apos;s nothing better than building with or simply living alongside good, curious people. 
               </p>
             </div>
           </div>
