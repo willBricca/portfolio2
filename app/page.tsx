@@ -8,15 +8,7 @@ import ScrollTopOnLoad from "@/components/scroll-top-on-load";
 
 const projects = [
   {
-    name: "Fire-Mapping Drone",
-    summary:
-      "Both a quad drone for imaging testing, in tandem with development of a VTOL fixed-wing platform for extended wildfire monitoring.",
-    image: "/images/fpv_initial.jpg",
-    tags: ["Aerial Robotics", "Controls", "VTOL", "Design"],
-    href: "/projects/fire-detecting-drone",
-  },
-  {
-    name: "Junior Capstone Autonomous Baseball Retriever",
+    name: "Autonomous Baseball Retriever",
     summary:
       "Autonomous rover designed to retrieve baseballs from a field, using computer vision and PID control for navigation.",
     image: "/images/rover.png",
@@ -30,6 +22,14 @@ const projects = [
     image: "/images/osaka-image.jpg",
     tags: ["Design", "MATLAB", "Prototyping"],
     href: "/projects/osaka-research",
+  },
+  {
+    name: "Fire-Mapping Drone",
+    summary:
+      "Both a quad drone for imaging testing, in tandem with development of a VTOL fixed-wing platform for extended wildfire monitoring.",
+    image: "/images/fpv_initial.jpg",
+    tags: ["Aerial Robotics", "Controls", "VTOL", "Design"],
+    href: "/projects/fire-detecting-drone",
   },
 ];
 
@@ -65,10 +65,10 @@ export default function Home() {
           <HeroClient>
             <div className="space-y-2">
               <h1 className="text-4xl md:text-6xl font-medium tracking-tight text-white/80 hero-animate delay-1">
-                I like
+                Here lie my
               </h1>
               <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-white hero-animate delay-2">
-                building.
+                projects and work.
               </h1>
             </div>
             <div className="mt-10 flex gap-3">

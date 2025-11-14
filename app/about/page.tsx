@@ -248,16 +248,17 @@ export default function AboutPage() {
             <div className="mt-4 text-zinc-700 md:text-lg leading-relaxed max-w-3xl space-y-4">
               <p>
                 ... and I truly love the iterative process of building things, and 
-                watching them fail. I&apos;ve failed more in the past two years than in my entire life
-                before that, and it&apos;s been an incredible time of growth. 
+                watching them fail. I&apos;ve failed more in the past two years than ever before, and 
+                coudn't be more grateful because of it. 
               </p>
               <p>
                 Starting out with Mechanical Engineering, it took time to find my passion within it.
-                I&apos;ve quickly realized over the second half of my degree that watching autonomous systems 
-                interact with the world based on simple first principles is special.
+                Building both drones and energy systems has been deeply gratifying. Whether the technology
+                is flying over the Santa Barbara mountains or providing disaster relief energy to communities,
+                building impactful products drives me. 
               </p>
               <p>
-                Beyond engineering, I enjoy producing and analyzing movie soundtracks. Songs from Tron, Interstellar, and The Lion King: 
+                Beyond engineering, I enjoy producing and enjoying movie soundtracks. Songs from Tron, Interstellar, and The Lion King: 
                 all incredible backdrops for building. I love the clarity that endurance sports bring, and the 
                 humbling feeling of being outdoors. Most of all, I love my family and friends. 
                 There&apos;s nothing better than building with or simply living alongside good, curious people. 
